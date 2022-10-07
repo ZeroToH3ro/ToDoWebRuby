@@ -1,0 +1,9 @@
+<p> <%= todo_item.content %> </p>
+<%= link_to "Delete",todo_list_todo_item_path(@todo_list, todo_item.id), data:
+  {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  }
+%>
+
+<%= link_to "Mark as complete", complete_todo_list_todo_item_path(@todo_list, todo_item.id ), method: :complete %>
