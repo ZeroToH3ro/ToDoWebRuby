@@ -15,8 +15,14 @@ class TodoItemsController < ApplicationController
     redirect_to @todo_list
   end
 
+  def show
+    @todo_item.destroy
+
+    redirect_to @todo_list
+  end
+
   def complete
-		@todo_item.update_attribute(:completed_at, Time.now)
+    @todo_item.update_attribute(:completed_at, Time.now)
     redirect_to @todo_list, notice: "#{@todo_item.completed_at}"
   end
 
